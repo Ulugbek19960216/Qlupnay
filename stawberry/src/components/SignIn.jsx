@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const SignIn = () => {
     const [emailD, setEmailD] = useState({
@@ -51,8 +51,8 @@ const SignIn = () => {
                     onChange={handleChange}
                     placeholder='Password'/>
                 <p>Forgot password?</p>
-                <Link to= "/Home"><button>Login</button></Link>
-                <p>Don't have an account? <Link to="/signUp">Sign Up</Link></p>
+                <NavLink to= "/Home"><button>Login</button></NavLink>
+                <p>Don't have an account? <NavLink to="/signUp">Sign Up</NavLink></p>
             </div>
       </form>
 

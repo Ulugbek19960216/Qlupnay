@@ -1,20 +1,30 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp"
+ import { 
+   createBrowserRouter,
+   createRoutesFromElements,
+   Route, 
+   RouterProvider} from "react-router-dom";
 
+
+
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route path='signIn' element={<SignIn/>}/>
+      <Route path="signup" element={<SignUp/>} />
+    </Route>
+
+  )
+)
 
 const UserForm = () => {
 
     return ( 
-      <Router>
-        <div>
-            <Switch>
-                <Route path="/"><SignIn/> </Route>
-                {/* <Route path = "/signup" component={SignUp} /> */}
-            </Switch>
-        </div>
-      </Router>
+      <RouterProvider  router={router} />
+     
      );
 }
  

@@ -1,5 +1,5 @@
 import React,{ useState}from 'react';
-
+import {NavLink} from "react-router-dom";
 
 const Register = () => {
   const [contact, setContact] = useState({
@@ -89,7 +89,7 @@ const Register = () => {
               placeholder='Confirm Password'/>
             </form>
                 <a href="/login"><button>Sgin Up</button></a>
-                <p>Already have an account? <a  class="sign-up-link" href="/login"/>Login</p>
+                <p>Already have an account? <NavLink to ="/signIn">Login</NavLink></p>
         </div>
     </div>
   );
