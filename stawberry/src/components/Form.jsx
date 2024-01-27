@@ -13,7 +13,7 @@ import SignUp from "./SignUp";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path='signIn' element={<SignIn/>}/>
+      <Route index path='/' element={<SignIn/>}/>
       <Route path="signup" element={<SignUp/>} />
     </Route>
 

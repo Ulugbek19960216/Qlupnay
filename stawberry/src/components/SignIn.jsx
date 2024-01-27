@@ -7,30 +7,19 @@ const SignIn = () => {
         password: "",
     });
 
+   
+
     function handleChange(event){
         const {name, value} = event.target;
-
-        setEmailD((prevValue) => {
-            if(name === "email") {
-                return {
-                   email:  value,
-                   password: prevValue.password,
-                };
-            } else if(name ==="password"){
-                return {
-                    password: value,
-                    email: prevValue.email,
-                };
-            }
-        })
-        
+        setEmailD({...emailD, [name]: value});
     }
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      // Handle sign-in logic here
     
+
     };
+
 
     return ( 
     <div className= "container">
