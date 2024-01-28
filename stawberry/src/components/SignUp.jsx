@@ -1,5 +1,8 @@
 import React,{ useState}from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, redirect} from "react-router-dom";
+import axios from "axios";
+import Logo from "./partial/Logo";
+import GoogleAuth from "./partial/GoogleSignIn";
 
 const Register = () => {
   const [contact, setContact] = useState({
@@ -24,7 +27,7 @@ const Register = () => {
 
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     validateAllInputs();
@@ -33,6 +36,16 @@ const Register = () => {
       console.log('Form submitted:', contact);
     } else {
       console.log('Form validation failed. Please check errors.');
+    }
+
+    try {
+        const response = await axios.post("/api/register", contact);
+        if(response) {
+          return redirect("/login");
+        }
+
+    } catch (error) {
+      console.error("Registration failde:", error.message);
     }
 
   };
@@ -110,28 +123,21 @@ return Object.values(errors).every((error) => error === "");
 
     return ( 
       <div class="container">
+         <div class="wrapper">
         <h2>{contact.fname}</h2>
         <h2>{contact.email}</h2>
         <h2>{contact.password}</h2>
         <h2>{contact.cPassword}</h2>
-        <h2></h2>
-        <div class="wrapper">
+        <Logo/>
             <form onSubmit={handleSubmit}>
             <input
                type ="fname"
                name="fname"
                value={contact.fname}
                onChange={handleChange}
-               placeholder="Name"
+               placeholder="Username"
               />
-            <input 
-              type ="email"
-              name="email"
-              value={contact.email}
-              onChange={handleChange}
-              placeholder="E-mail address"
-              />
-              <span className='error'>{errors.email}</span>
+            
             <input 
               type ="password"
               name="password"
@@ -144,14 +150,29 @@ return Object.values(errors).every((error) => error === "");
               name="cPassword"
               value={contact.cPassword}
               onChange={handleChange}
-              placeholder='Confirm Password'/>
+              placeholder='Confirm password'/>
+
+              <input 
+              type ="email"
+              name="email"
+              value={contact.email}
+              onChange={handleChange}
+              placeholder="E-mail address"
+              />
+              <span className='error'>{errors.email}</span>
+
             </form>
-                <a href="/login" type='submit'><button>Sgin Up</button></a>
-                <p>Already have an account? <NavLink to ="/">Login</NavLink></p>
+            <button type="submit">Sign Up</button>
+              <div className="extra-con">
+                <p>Already have an account?</p>
+                <p><NavLink style={{textDecoration: "none"}} to ="/">Login</NavLink></p>
+              </div>
+              <GoogleAuth type={"up"}/>
         </div>
+        
     </div>
   );
      
 };
  
-export default  Register;
+export default  Register
