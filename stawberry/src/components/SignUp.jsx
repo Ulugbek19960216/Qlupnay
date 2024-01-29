@@ -1,8 +1,8 @@
 import React,{ useState}from 'react';
 import {NavLink, redirect} from "react-router-dom";
 import axios from "axios";
-import Logo from "./partial/Logo";
-import GoogleAuth from "./partial/GoogleSignIn";
+import Header from "./RegisterPartials/Header";
+import Footer from "./RegisterPartials/Footer";
 
 const Register = () => {
   const [contact, setContact] = useState({
@@ -124,11 +124,7 @@ return Object.values(errors).every((error) => error === "");
     return ( 
       <div class="container">
          <div class="wrapper">
-        <h2>{contact.fname}</h2>
-        <h2>{contact.email}</h2>
-        <h2>{contact.password}</h2>
-        <h2>{contact.cPassword}</h2>
-        <Logo/>
+        <Header/>
             <form onSubmit={handleSubmit}>
             <input
                type ="fname"
@@ -163,11 +159,10 @@ return Object.values(errors).every((error) => error === "");
 
             </form>
             <button type="submit">Sign Up</button>
-              <div className="extra-con">
-                <p>Already have an account?</p>
-                <p><NavLink style={{textDecoration: "none"}} to ="/">Login</NavLink></p>
-              </div>
-              <GoogleAuth type={"up"}/>
+              <Footer 
+                text={"Already have an account ?"}
+                link={"/"}
+                type={"Sign in"}/>
         </div>
         
     </div>

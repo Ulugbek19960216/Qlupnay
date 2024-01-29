@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {NavLink, redirect} from "react-router-dom";
-import Logo from "./partial/Logo";
-import GoogleAuth from "./partial/GoogleSignIn";
+import Header from "./RegisterPartials/Header";
+import Footer from "./RegisterPartials/Footer";
 import axios from 'axios';
 
 const SignIn = () => {
@@ -36,9 +36,7 @@ const SignIn = () => {
       <>
     <div className= "container">
         <div class="wrapper">
-        <h2>{emailD.email}</h2>
-        <h2>{emailD.password}</h2>
-        <Logo />
+        <Header />
         <form onSubmit={handleSubmit}>
                 <input 
                     type ="email" 
@@ -54,11 +52,11 @@ const SignIn = () => {
                     placeholder='Password'/>
                 <button type="submit">Login</button>
       </form>
-      <div className="extra-con">
-                <p>Forgot Password ?</p>
-                <p><NavLink style={{textDecoration: "none"}} to="/signUp">Sign Up</NavLink></p>
-         </div>
-         <GoogleAuth type="in"/>
+         <Footer 
+          text={"Forgot Password ?"}
+          link={"/signUp"}
+          type={" Sign up"}
+         />
       </div>
     </div>
     </>
