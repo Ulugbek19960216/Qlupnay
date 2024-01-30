@@ -4,6 +4,7 @@ import Header from "./RegisterPartials/Header";
 import Footer from "./RegisterPartials/Footer";
 import axios from 'axios';
 
+
 const SignIn = () => {
     const [emailD, setEmailD] = useState({
         email: "",
@@ -34,6 +35,7 @@ const SignIn = () => {
 
     return ( 
       <>
+    <div className="bg-image"></div>
     <div className= "container">
         <div class="wrapper">
         <Header />

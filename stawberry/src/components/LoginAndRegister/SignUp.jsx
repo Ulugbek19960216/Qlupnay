@@ -4,6 +4,8 @@ import axios from "axios";
 import Header from "./RegisterPartials/Header";
 import Footer from "./RegisterPartials/Footer";
 
+
+
 const Register = () => {
   const [contact, setContact] = useState({
     fname: "",
@@ -158,7 +160,7 @@ return Object.values(errors).every((error) => error === "");
               <span className='error'>{errors.email}</span>
 
             </form>
-            <button type="submit">Sign Up</button>
+            <button  type="submit">Sign Up</button>
               <Footer 
                 text={"Already have an account ?"}
                 link={"/"}
