@@ -1,16 +1,18 @@
 import React from 'react'
-import {Button, Card, IconButton, Typography, Box} from "@mui/material";
+import { Card, Button, IconButton, Typography, Box} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-// import { useState }  from "react";
+import { useState }  from "react";
+
 
 function LanguageOptions() {
-
-    
     const buttonStyle = {
         borderRadius: '12px',
         marginRight: '15px',
         width: '220px',
-        fontFamily: "Montserrat"
+        fontFamily: "Montserrat",
+        "&.MuiButton-contained": {
+            backgroundColor: "#FF2A23",
+        },
     };
 
     const buttonGroupStyle ={
@@ -19,7 +21,24 @@ function LanguageOptions() {
         width: "100%",
         height: "55px",
         marginTop: "1.5rem"
+    };
+
+    const [selectedLanguage, setSelectedLanguage] = useState({
+        isUz: true,
+        isRu: false,
+        isEng: false
+    });
+
+    function handleClick(language) {
+       const newSelectedLanguage = {
+        isUz: language === "Uz",
+        isRu: language === "Ru",
+        isEng: language === "Eng",
+       };
+
+       setSelectedLanguage(newSelectedLanguage);
     }
+    
 
   return (
         <Box display="flex"
@@ -49,9 +68,9 @@ function LanguageOptions() {
                     </Typography>
                 </Box>
                 <Box sx={buttonGroupStyle}>
-                    <Button sx={buttonStyle} color="error" variant='contained'>Uzbek</Button>
-                    <Button sx={buttonStyle}  variant='outlined'>Russian</Button>
-                    <Button sx={buttonStyle}  variant='outlined'>English</Button>
+                    <Button  sx={buttonStyle} onClick={() => handleClick("Uz")}   variant={selectedLanguage.isUz ? "contained" : "outlined"}>Uzbek</Button>
+                    <Button  sx={buttonStyle} onClick={() => handleClick("Ru")}   variant={selectedLanguage.isRu ? "contained" : "outlined"}>Russian</Button>
+                    <Button  sx={buttonStyle} onClick={() => handleClick("Eng")}  variant={selectedLanguage.isEng ? "contained" : "outlined"}>English</Button>
                 </Box>
             </Box>
         </Card>
