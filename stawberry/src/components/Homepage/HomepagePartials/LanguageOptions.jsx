@@ -1,7 +1,7 @@
 import React from 'react'
-import {Button, Card,  Typography, Box} from "@mui/material";
+import {Button, Card, IconButton, Typography, Box} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import { useState }  from "react";
+// import { useState }  from "react";
 
 function LanguageOptions() {
 
@@ -28,7 +28,9 @@ function LanguageOptions() {
             height="100vh">
         
             <Card sx={{width: 650, height: 400, p: 2, borderRadius: "15px"}}>
-                <CloseIcon sx={{ float: "right" }}/>
+               <IconButton size="small"  sx={{ width: "30px", float: 'right' }}>
+               <    CloseIcon/>
+                </IconButton> 
 
                 <Box 
                     display="flex"
