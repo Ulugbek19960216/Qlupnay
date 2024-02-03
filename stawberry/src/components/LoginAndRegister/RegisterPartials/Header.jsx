@@ -6,7 +6,7 @@ export default function () {
  return (
     <div>
         <h2><img src={path + '/images/logo1.png'} width="80px"/></h2>
-        <h3>QLUPNAY</h3>
+        <h3>QULUPNAY</h3>
     </div>
   )
 }

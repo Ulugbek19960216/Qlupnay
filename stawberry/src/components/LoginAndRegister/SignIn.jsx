@@ -35,7 +35,6 @@ const SignIn = () => {
 
     return ( 
       <>
-    <div className="bg-image"></div>
     <div className= "container">
         <div class="wrapper">
         <Header />

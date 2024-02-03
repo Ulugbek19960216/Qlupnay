@@ -1,15 +1,7 @@
 body, html {
     height: 100%;
   }
-  .bg-image{
-    box-sizing: "border-box";
-    background-size: cover;
-    background-position: center;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-    height: 100%;
-  
-  }
+ 
   :root{
     --primary-color:#FF2A23;
     --background-color: #f8f9fa;
