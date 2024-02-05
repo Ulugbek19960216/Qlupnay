@@ -158,9 +158,9 @@ return Object.values(errors).every((error) => error === "");
               placeholder="E-mail address"
               />
               <span className='error'>{errors.email}</span>
-
+              <button  type="submit">Sign Up</button>
             </form>
-            <button  type="submit">Sign Up</button>
+            
               <Footer 
                 text={"Already have an account ?"}
                 link={"/"}
